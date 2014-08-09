@@ -17,10 +17,10 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_development_dependency 'webmock'
-  gem.add_development_dependency 'geminabox'
-  gem.add_development_dependency 'rdoc'
-  gem.add_runtime_dependency 'multi_json'
-  gem.add_runtime_dependency 'httparty'
-  gem.add_runtime_dependency 'hashie'
+  gem.add_development_dependency 'webmock', '~> 1.18.0'
+  gem.add_development_dependency 'geminabox', '~> 0.12.4'
+  gem.add_development_dependency 'rdoc', '~> 4.1.1'
+  gem.add_runtime_dependency 'multi_json', '~> 1.10.1'
+  gem.add_runtime_dependency 'httparty', '~> 0.13.1'
+  gem.add_runtime_dependency 'hashie', '~> 3.2.0'
 end
