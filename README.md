@@ -4,6 +4,8 @@ This is the base gem for a suite of API wrappers for the Sabre Dev Studio APIs.
 
 This gem includes the token authentication and basic error handling.
 
+[![Build Status](https://travis-ci.org/SabreDevStudio/sabre_dev_studio.svg?branch=master)](https://travis-ci.org/SabreDevStudio/sabre_dev_studio)
+
 ## Installation
 
 Add this line to your application's Gemfile:
