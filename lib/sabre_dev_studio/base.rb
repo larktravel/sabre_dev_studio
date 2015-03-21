@@ -113,6 +113,8 @@ module SabreDevStudio
         if attempt == 1
           get_access_token
           retry
+        else
+          raise
         end
       end
     end

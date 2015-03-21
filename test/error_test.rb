@@ -25,7 +25,10 @@ class SabreDevStudio::ErrorTests < Test::Unit::TestCase
     stub_request(:get, SabreDevStudio.configuration.uri + url).to_return(status: 401)
     stub_request(:post, token_url).
       to_return(:status => 200, :body =>"{\"access_token\":\"Shared/IDL:IceSess\\\\/SessMgr:1\\\\.0.IDL/Common/!ICESMS\\\\/ACPCRTD!ICESMSLB\\\\/CRT.LB!-3801964284027024638!507667!0!F557CBE649675!E2E-1\",\"token_type\":\"bearer\",\"expires_in\":1800}")
-    SabreDevStudio::Base.get(url)
+    # need to assert it eventually gets raised
+    assert_raises SabreDevStudio::Unauthorized do
+      SabreDevStudio::Base.get(url)
+    end
     assert_requested :get, SabreDevStudio.configuration.uri + url, :times => 2
     assert_requested :post, token_url, :times => 1
   end
