@@ -39,6 +39,10 @@ module SabreDevStudio
       hashie
     end
 
+    def inspect
+      self.to_s
+    end
+
     private
     def hashie
       unless @hashie
