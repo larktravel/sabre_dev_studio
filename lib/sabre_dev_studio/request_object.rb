@@ -35,6 +35,10 @@ module SabreDevStudio
       end
     end
 
+    def to_s
+      hashie
+    end
+
     private
     def hashie
       unless @hashie
