@@ -50,7 +50,7 @@ module SabreDevStudio
           "OriginLocation" => {"LocationCode" => options[:destination]},
           "RPH" => "1"
         },{
-          "DepartureDateTime" => options[:departs_at].strftime("%Y-%m-%dT%H:%M:%S"),
+          "DepartureDateTime" => options[:returns_at].strftime("%Y-%m-%dT%H:%M:%S"),
           "DestinationLocation" => { "LocationCode" => options[:destination]},
           "OriginLocation" => {"LocationCode" => options[:origin]},
           "RPH" => "2"
