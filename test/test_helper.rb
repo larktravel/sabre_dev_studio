@@ -1,8 +1,10 @@
 require 'rubygems'
 require 'json'
 require 'bundler'
-require 'test/unit'
-require 'webmock/test_unit'
+# require 'test/unit'
+# require 'webmock/test_unit'
+require 'minitest/autorun'
+require 'webmock/minitest'
 require 'addressable/uri'
 
 Bundler.require
@@ -19,6 +21,11 @@ end
 def json_from_fixture(file)
   json = fixture(file).read
   JSON.parse(json)
+end
+
+def raw_json_from_fixture(file)
+  json = fixture(file).read
+  json
 end
 
 def json_response(file)

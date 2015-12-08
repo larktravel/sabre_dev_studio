@@ -1,0 +1,65 @@
+{
+  "OTA_AirLowFareSearchRQ": {
+    "OriginDestinationInformation": [
+      {
+        "DepartureDateTime": "2016-09-11T00:00:00",
+        "DestinationLocation": {
+          "LocationCode": "JFK"
+        },
+        "OriginLocation": {
+          "LocationCode": "LAX"
+        },
+        "RPH": "1"
+      },
+      {
+        "DepartureDateTime": "2016-09-13T00:00:00",
+        "DestinationLocation": {
+          "LocationCode": "LAX"
+        },
+        "OriginLocation": {
+          "LocationCode": "JFK"
+        },
+        "RPH": "2"
+      }
+    ],
+    "POS": {
+      "Source": [
+        {
+          "RequestorID": {
+            "CompanyName": {
+              "Code": "TN"
+            },
+            "ID": "1",
+            "Type": "1"
+          }
+        }
+      ]
+    },
+    "TPA_Extensions": {
+      "IntelliSellTransaction": {
+        "RequestType": {
+          "Name": "50ITINS"
+        }
+      }
+    },
+    "TravelPreferences": {
+      "TPA_Extensions": {
+        "NumTrips": {
+          "Number": 1
+        }
+      }
+    },
+    "TravelerInfoSummary": {
+      "AirTravelerAvail": [
+        {
+          "PassengerTypeQuantity": [
+            {
+              "Code": "ADT",
+              "Quantity": 2
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

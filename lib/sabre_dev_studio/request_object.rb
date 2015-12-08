@@ -52,37 +52,4 @@ module SabreDevStudio
     end
   end
 
-  class PostRequestObject < Hash
-    attr_reader :response
-
-    def initialize(endpoint, options = {})
-      Rails.logger.info(options)
-      @response = SabreDevStudio::Base.send_post(endpoint, :query => options)
-    end
-
-    def method_missing(meth, *args, &block)
-      if hashie.respond_to?(meth)
-        hashie.send(meth)
-      else
-        super
-      end
-    end
-
-    def respond_to?(meth)
-      if hashie.respond_to?(meth)
-        true
-      else
-        super
-      end
-    end
-
-    private
-    def hashie
-      unless @hashie
-        @hashie ||= Hashie::Mash.new(@response.parsed_response).downcase_keys
-      end
-      @hashie
-    end
-  end
-
 end
