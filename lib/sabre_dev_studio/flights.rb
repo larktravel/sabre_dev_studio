@@ -46,13 +46,13 @@ module SabreDevStudio
       request = {"OTA_AirLowFareSearchRQ" => {
         "OriginDestinationInformation" => [{
           "DepartureDateTime" => options[:departs_at].strftime("%Y-%m-%dT%H:%M:%S"),
-          "DestinationLocation" => { "LocationCode" => options[:origin]},
-          "OriginLocation" => {"LocationCode" => options[:destination]},
+          "DestinationLocation" => { "LocationCode" => options[:destination]},
+          "OriginLocation" => {"LocationCode" => options[:origin]},
           "RPH" => "1"
         },{
           "DepartureDateTime" => options[:returns_at].strftime("%Y-%m-%dT%H:%M:%S"),
-          "DestinationLocation" => { "LocationCode" => options[:destination]},
-          "OriginLocation" => {"LocationCode" => options[:origin]},
+          "DestinationLocation" => { "LocationCode" => options[:origin]},
+          "OriginLocation" => {"LocationCode" => options[:destination]},
           "RPH" => "2"
         }],
         "POS" => {
