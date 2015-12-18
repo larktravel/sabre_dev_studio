@@ -46,6 +46,7 @@ module SabreDevStudio
         exclude_airlines: [],
         preferred_airlines: [],
         travel_time_weight: 5,
+        full_diversity: false
       }.merge(opts)
 
       request = {"OTA_AirLowFareSearchRQ" => {
@@ -66,6 +67,7 @@ module SabreDevStudio
           },
           "RPH" => "2"
         }],
+        "FullDiversity" => options[:full_diversity],
         "TravelPreferences" => {
           # "ETicketDesired" => false,
           "ValidInterlineTicket" => true,
