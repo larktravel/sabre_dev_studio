@@ -7,7 +7,7 @@ module SabreDevStudio
 
     def self.bargain_finder_max(options = {})
       request_body = build_bfm_request(options)
-      endpoint = '/v1.9.0/shop/flights?mode=live'
+      endpoint = '/v1.9.2/shop/flights?mode=live'
       response = SabreDevStudio::Base.post_request(endpoint, request_body.to_json)
       return response
     end
