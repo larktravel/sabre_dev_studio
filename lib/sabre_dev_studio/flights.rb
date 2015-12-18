@@ -57,6 +57,7 @@ module SabreDevStudio
           "TPA_Extensions" => {
             "IncludeVendorPref" => options[:preferred_airlines]
           },
+          "FullDiversity" => options[:full_diversity],
           "RPH" => "1"
         },{
           "DepartureDateTime" => options[:returns_at].strftime("%Y-%m-%dT%H:%M:%S"),
@@ -65,9 +66,9 @@ module SabreDevStudio
           "TPA_Extensions" => {
             "IncludeVendorPref" => options[:preferred_airlines]
           },
+          "FullDiversity" => options[:full_diversity],
           "RPH" => "2"
         }],
-        "FullDiversity" => options[:full_diversity],
         "TravelPreferences" => {
           # "ETicketDesired" => false,
           "ValidInterlineTicket" => true,
