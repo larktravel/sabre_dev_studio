@@ -40,7 +40,12 @@ module SabreDevStudio
         returns_at: Date.today + 35,
         itins: 50,
         passenger_type: "ADT",
-        passenger_count: 2
+        passenger_count: 2,
+        cabin_class: "Y",
+        cabin_pref: "Preferred",
+        exclude_airlines: [],
+        preferred_airlines: [],
+        travel_time_weight: 5,
       }.merge(opts)
 
       request = {"OTA_AirLowFareSearchRQ" => {
@@ -48,13 +53,38 @@ module SabreDevStudio
           "DepartureDateTime" => options[:departs_at].strftime("%Y-%m-%dT%H:%M:%S"),
           "DestinationLocation" => { "LocationCode" => options[:destination]},
           "OriginLocation" => {"LocationCode" => options[:origin]},
+          "TPA_Extensions" => {
+            "IncludeVendorPref" => options[:preferred_airlines]
+          },
           "RPH" => "1"
         },{
           "DepartureDateTime" => options[:returns_at].strftime("%Y-%m-%dT%H:%M:%S"),
           "DestinationLocation" => { "LocationCode" => options[:origin]},
           "OriginLocation" => {"LocationCode" => options[:destination]},
+          "TPA_Extensions" => {
+            "IncludeVendorPref" => options[:preferred_airlines]
+          },
           "RPH" => "2"
         }],
+        "TravelPreferences" => {
+          # "ETicketDesired" => false,
+          "ValidInterlineTicket" => true,
+          # "SmokingAllowed" => false,
+          "CabinPref" => [{
+            "Cabin" => options[:cabin_class],
+            "PreferLevel" => options[:cabin_pref]
+          }],
+          # "VendorPref" => options[:preferred_airlines].map{|pa| {"Code" => pa}},
+          "TPA_Extensions" => {
+            "ExcludeVendorPref" => options[:exclude_airlines]
+            # "OnlineIndicator" => {
+            #   "Ind" => true
+            # },
+            # "TripType": {
+            #   "Value" => "Circle"
+            # }
+          }
+        },
         "POS" => {
           "Source" => [{"RequestorID" => { "CompanyName" => { "Code" => "TN" }, "ID" => "1", "Type" => "1" }}]
         },
